@@ -1,41 +1,36 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HTML com JS</title>
-    <link rel="stylesheet" href="./main.css" />
+    <title>Lista de tarefas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="main.css" />
   </head>
   <body>
-    <div class="container">
-      <h1>Formulário</h1>
-      <h2>
-        Digite um número para cada campo. O valor do campo B deve ser maior do
-        que o do campo A!
-      </h2>
-      <form id="meuForm">
-        <input
-          type="number"
-          id="campoA"
-          name="campoA"
-          required
-          placeholder="Digite um número"
-        />
+    <header>
+      <h1>Lista de tarefas</h1>
+    </header>
 
-        <input
-          type="number"
-          id="campoB"
-          name="campoB"
-          required
-          placeholder="Digite outro número"
-        />
+    <form>
+      <input type="text" id="tarefa" required placeholder="Digite a tarefa" />
+      <button type="submit">Adicionar</button>
+    </form>
 
-        <button type="button" onclick="validarFormulario()">Enviar</button>
-      </form>
-
-      <div id="mensagem"></div>
+    <div class="lista-tarefas">
+      <ul>
+        <li id="item" style="display: none">
+          <p id="nova-tarefa"></p>
+        </li>
+      </ul>
     </div>
-    <script src="./main.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="main.js"></script>
   </body>
 </html>
