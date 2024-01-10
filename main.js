@@ -1,28 +1,15 @@
-function validarFormulario() {
-  // Obter os valores dos campos
-  var campoA = document.getElementById('campoA').value;
-  var campoB = document.getElementById('campoB').value;
+$(document).ready(function() {
+  $('form').on('submit', function(e) {
+    e.preventDefault();
+    const novoItem = $('#tarefa').val();
+    const novaTarefa = $('<li id="item"></li>');
+    $(`<p id="nova-tarefa">${novoItem}</p>`).appendTo(novaTarefa);
+    
+    $(novaTarefa).appendTo('ul');
+    $(novaTarefa).fadeIn(1000);
+  })
 
-  // Converter os valores para números
-  campoA = parseFloat(campoA);
-  campoB = parseFloat(campoB);
-
-  // Verificar a condição de validação
-  if (campoB > campoA) {
-      exibirMensagemPositiva();
-  } else {
-      exibirMensagemNegativa();
-  }
-}
-
-function exibirMensagemPositiva() {
-  var mensagemDiv = document.getElementById('mensagem');
-  mensagemDiv.innerHTML = 'Formulário válido! B é maior que A.';
-  mensagemDiv.style.color = 'green';
-}
-
-function exibirMensagemNegativa() {
-  var mensagemDiv = document.getElementById('mensagem');
-  mensagemDiv.innerHTML = 'Formulário inválido! Certifique-se de que B é maior que A.';
-  mensagemDiv.style.color = 'red';
-}
+  $('#nova-tarefa').click(function (){
+    $('#nova-tarefa').css("text-decoration", "line-through");
+  })
+})
